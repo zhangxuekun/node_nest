@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { User } from '../interfaces/users.interface';
 import { IUserService } from '../interfaces/users-service.interface';
+import{CreateUserDto} from '../dtos/create-user.dto'
 
 @Injectable()
 
@@ -17,15 +18,24 @@ export class UserService implements IUserService {
         };
     }
 
-    // async create() {
-        
-    // }
+    async create(user: CreateUserDto): Promise<User> {
+        return {
+            id:1,
+            name: '小明',
+            age: 18
+        };
+    }
 
-    // async edit() {
+    async edit(user: CreateUserDto): Promise<User> {
+        return {
+            id:1,
+            name: '小明',
+            age: 18
+        };
 
-    // }
+    }
 
-    // async remove() {
+    async remove(id:number) {
 
-    // }
+    }
 }
