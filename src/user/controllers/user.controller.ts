@@ -1,18 +1,52 @@
 import { Controller, Param, Get, Inject, Post, Delete, Put,Res,Body,HttpStatus,ParseIntPipe} from '@nestjs/common';
-import { User } from '../interfaces/users.interface';
-import { UserService } from '../services/users.service';
-import { IUserService } from '../interfaces/users-service.interface';
+import { User } from '../interfaces/user.interface';
+import { IUserService } from '../interfaces/user-service.interface';
 import { ApiException } from '../../common/exceptions/api.exception';
 import { ApiErrorCode } from '../../common/enums/api-error-code.enum';
 import {UserIdPipe} from '../pipes/user-id.pipe'
 import { CreateUserDto } from '../dtos/create-user.dto';
+// import { Authing, Roles, AuthUser } from '../decorators/common.decorator';
 
-@Controller('users')
+
+@Controller('user')
 export class UserController {
 
     constructor(@Inject('UserService') private readonly userService: IUserService) {
 
     }
+
+    // @Post('login')
+    // async login(@Authing() authing) {
+
+    //     try {
+    //         const result  = await authing.login({
+    //             email: 'zxktxj@163.com',
+    //             password: '111111'
+    //         });
+
+    //         return result;
+
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+        
+    // }
+
+    // @Get('info')
+    // @Roles('user')
+    // async info(@AuthUser() user, @Authing() authing) {
+
+    //     try {
+
+    //         return await authing.user({
+    //             id: user.data.id
+    //         });
+
+    //     } catch(err) {
+    //         console.log(err);
+    //     }
+    // }
+
 
     @Get()
     async findAll(): Promise<User[]> {

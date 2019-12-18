@@ -1,13 +1,14 @@
-import { Module } from '@nestjs/common';
+import { Module,DynamicModule } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UserModule } from './users/users.module'
-
-// import { UserController } from './users/controllers/users.controller';
-// import { UserService } from './users/services/users.service';
+import { UserModule } from './user/user.module'
+import { HomeModule } from './home/home.module'
+import { ConfigService } from './config/config.service'
+import { TypeOrmModule } from '@nestjs/typeorm';
+import * as Path from 'path';
 
 @Module({
-  imports: [UserModule],
+  imports: [HomeModule,UserModule],
   controllers: [AppController],
   providers: [AppService],
 })

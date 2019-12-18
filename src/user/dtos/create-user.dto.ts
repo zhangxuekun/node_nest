@@ -1,4 +1,4 @@
-import { User } from "../interfaces/users.interface";
+import { User } from "../interfaces/user.interface";
 import { Type } from "class-transformer";
 import { IsString, IsInt, IsNotEmpty, Min, Max } from 'class-validator';
 import { ApiErrorCode } from "../../common/enums/api-error-code.enum";
